@@ -158,3 +158,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 USE_TZ = True
 TIME_ZONE = 'Asia/Kolkata'
 DATETIME_FORMAT = 'iso-8601'
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
