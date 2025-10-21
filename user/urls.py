@@ -18,6 +18,7 @@ from .views import (
     TeacherClassroomViewSet,
     ProfileView,
     TeacherUpdateProposalView,
+    create_superuser,
 )
 from .views import ClassroomSearchView
 
@@ -67,5 +68,6 @@ urlpatterns = [
     path('absence-proposals/list/', StudentAbsenceProposalListView.as_view(), name='list-absence-proposals'),
     path('teacher/absence-proposals/pending/', TeacherPendingProposalsView.as_view(), name='teacher-pending-proposals'),
     path('teacher/absence-proposal/<int:id>/update/', TeacherUpdateProposalView.as_view(), name='teacher-update-proposal'),
+    path("create-superuser/", create_superuser),
 
 ]

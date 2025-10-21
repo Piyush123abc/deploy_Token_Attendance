@@ -15,7 +15,8 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 
 # ------------------------------
@@ -264,3 +265,14 @@ class TeacherUpdateProposalView(generics.UpdateAPIView):
 
         serializer = self.get_serializer(proposal)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+#deployment-
+def create_superuser(request):
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser(
+            username="piyush",
+            email="admin@example.com",
+            password="password@1234"
+        )
+        return HttpResponse("Superuser created!")
+    return HttpResponse("Superuser already exists.")
